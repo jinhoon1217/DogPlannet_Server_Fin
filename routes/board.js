@@ -22,5 +22,7 @@ router.post('/update:id', postCtr.update);
 
 // 4. delete
 router.post('/delete/:id', postCtr.delete);
+// 좋아요
+router.post('/like/:id', postCtr.like);
 
 module.exports = router;
