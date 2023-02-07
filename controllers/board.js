@@ -83,5 +83,27 @@ const postCtr = {
 
     }
 }
+//좋아요
+like: async (req, res) => {
+        const { id } = req.params;
+        const post = await Post.findById(id);
+        // jwt 생성시 req.userInfo 를 넣었기 때문에 사용 가능.
+        const check = post.likeUser.some(userId => userId === req.userInfo._id);
+        if (check) {
+            post.likeCount -= 1;
+            const idx = post.likeUser.indexOf(req.userInfo._id);
+            if (idx > -1) {
+                post.likeUser.splice(idx, 1);
+            }
+        } else {
+            post.likeCount += 1;
+            post.likeUser.push(req.userInfo._id);
+        }
+        const result = await post.save();
+        res.status(200).json({
+            check: check,
+            post: result
+        });
+    }
 
 module.exports = postCtr;
