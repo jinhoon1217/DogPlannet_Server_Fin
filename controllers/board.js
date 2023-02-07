@@ -1,7 +1,7 @@
 // 게시물 CRUD, 좋아요 로작 담당
 const Post = require("../models/posts");
 
-// Date를 2021-12-28 형식으로 바꿔주는 함수.
+// Date를 2023-02-07 형식으로 바꿔주는 함수.
 const formatDate = (date) => {
     let d = new Date(date);
     let month = ("" + (d.getMonth() + 1)).padStart(2, "0");
