@@ -1,7 +1,7 @@
 const express = require("express");
 const { route } = require("..");
 const router = express.Router();
-const upload = require("../../module/multer");
+const upload = require("../../config/multer");
 const postCtr = require('../../controllers/boards');
 
 // 1. create
