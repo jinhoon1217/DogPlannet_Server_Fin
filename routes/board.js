@@ -2,7 +2,7 @@ const express = require("express");
 const { route } = require("..");
 const router = express.Router();
 const upload = require("../../module/multer");
-const postCtr = require('../../controller/posts');
+const postCtr = require('../../controllers/boards');
 
 // 1. create
 router.get('/upload', checkUser, (req, res) => {
