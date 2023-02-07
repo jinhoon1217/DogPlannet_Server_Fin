@@ -44,16 +44,6 @@ router.post('/', isLoggedIn, upload2.none(), async (req, res, next) => {
       img: req.body.url, // 업로드한 이미지 주소
       UserId: req.user.id,
     });
-    const hashtags = req.body.content.match(/#[^\s#]*/g); // 해시태그 추출
-    if (hashtags) { // 해시태그가 있다면
-      const result = await Promise.all( // [모델, 생성여부] 로 반환
-        hashtags.map(tag => {
-          return Hashtag.findOrCreate({ // 해시태그가 존재하면 가져오고 존재하지 않으면 생성한 후 가져옴
-            where: { title: tag.slice(1).toLowerCase() }, // 앞에 #을 떼고 소문자로 바꿈
-          })
-        }),
-      );
-      await post.addHashtags(result.map(r => r[0])); // 해시태그 모델들을 게시글과 연결
     }
     res.redirect('/');
   } catch (error) {
