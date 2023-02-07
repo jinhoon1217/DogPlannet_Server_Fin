@@ -1,4 +1,4 @@
-const Post = require("../model/post");
+const Post = require("../models/posts");
 
 // Date를 2021-12-28 형식으로 바꿔주는 함수.
 const formatDate = (date) => {
