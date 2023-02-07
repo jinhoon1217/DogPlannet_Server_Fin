@@ -1,3 +1,4 @@
+// 게시물 CRUD, 좋아요 로작 담당
 const Post = require("../models/posts");
 
 // Date를 2021-12-28 형식으로 바꿔주는 함수.
